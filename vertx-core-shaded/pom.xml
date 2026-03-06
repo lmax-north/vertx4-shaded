@@ -31,9 +31,20 @@
         <configuration>
           <artifactSet>
             <includes>
+                <include>io.netty:*</include>
+                <include>io.netty.incubator:*</include>
               <include>io.vertx:vertx-core</include>
             </includes>
           </artifactSet>
+
+        <filters>
+          <filter>
+            <artifact>*:*</artifact>
+              <excludes>
+                  <exclude>META-INF/versions/**</exclude>
+              </excludes>
+          </filter>
+        </filters>
           <finalName>vertx-core-shaded-${vertx.version}</finalName>
         </configuration>
       </plugin>
