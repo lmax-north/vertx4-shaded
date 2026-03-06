@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.mycompany.vertx4</groupId>
+    <artifactId>vertx4-shaded-parent</artifactId>
+    <version>4.5.16</version>
+  </parent>
+
+  <artifactId>vertx-auth-htdigest-shaded</artifactId>
+  <packaging>jar</packaging>
+  <name>Vert.x 4 Shaded :: vertx-auth-htdigest</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-auth-htdigest</artifactId>
+      <version>${vertx.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <configuration>
+          <artifactSet>
+            <includes>
+              <include>io.vertx:vertx-auth-htdigest</include>
+            </includes>
+          </artifactSet>
+          <finalName>vertx-auth-htdigest-shaded-${vertx.version}</finalName>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
